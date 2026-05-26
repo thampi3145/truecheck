@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: truecheck-api
+    env: node
+    region: singapore   # Closest free region to India
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npx playwright install chromium
+    startCommand: npm start
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false       # You enter this manually in Render dashboard
+      - key: NODE_ENV
+        value: production
+      - key: ALLOWED_ORIGIN
+        value: "*"
+    healthCheckPath: /health
