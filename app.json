@@ -34,8 +34,7 @@
       ]
     },
     "plugins": [
-      "expo-image-picker",
-      "expo-status-bar"
+      "expo-image-picker"
     ],
     "extra": {
       "eas": {
