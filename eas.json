@@ -5,12 +5,7 @@
   "build": {
     "preview": {
       "android": {
-        "buildType": "apk",
-        "image": "ubuntu-22.04-jdk-17-ndk-r25b"
-      },
-      "node": "20.18.0",
-      "env": {
-        "NODE_OPTIONS": "--max-old-space-size=4096"
+        "buildType": "apk"
       }
     }
   }
