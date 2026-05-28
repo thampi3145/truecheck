@@ -8,34 +8,30 @@
     "ios": "expo start --ios"
   },
   "dependencies": {
-    "@expo/vector-icons": "^15.0.3",
-    "@react-native-async-storage/async-storage": "2.2.0",
-    "@react-navigation/bottom-tabs": "^7.3.0",
-    "@react-navigation/native": "^7.2.5",
-    "@react-navigation/native-stack": "^7.3.0",
-    "axios": "1.7.2",
-    "buffer": "^6.0.3",
     "expo": "56.0.5",
-    "expo-blur": "~56.0.3",
-    "expo-build-properties": "~56.0.15",
-    "expo-clipboard": "~56.0.3",
-    "expo-haptics": "~56.0.3",
-    "expo-image-picker": "~56.0.14",
-    "expo-linear-gradient": "~56.0.4",
-    "expo-status-bar": "~56.0.4",
+    "expo-status-bar": "3.0.9",
+    "expo-image-picker": "16.0.6",
+    "expo-clipboard": "7.0.1",
+    "expo-haptics": "14.0.1",
+    "expo-linear-gradient": "14.0.2",
+    "expo-blur": "14.0.3",
     "react": "19.1.0",
     "react-native": "0.81.5",
-    "react-native-gesture-handler": "~2.21.2",
-    "react-native-safe-area-context": "~5.6.0",
-    "react-native-screens": "~4.16.0",
-    "react-native-svg": "15.12.1"
+    "react-native-safe-area-context": "5.6.0",
+    "react-native-screens": "4.16.0",
+    "react-native-gesture-handler": "2.28.0",
+    "react-native-svg": "15.12.1",
+    "@react-navigation/native": "7.2.5",
+    "@react-navigation/bottom-tabs": "7.3.0",
+    "@react-navigation/native-stack": "7.3.0",
+    "@react-native-async-storage/async-storage": "2.2.0",
+    "@expo/vector-icons": "15.0.3",
+    "axios": "1.7.2",
+    "buffer": "6.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.0",
-    "@types/react": "~19.1.0",
-    "typescript": "~5.9.2"
-  },
-  "expo": {
-    "newArchEnabled": false
+    "@babel/core": "^7.26.0",
+    "@types/react": "^19.1.0",
+    "typescript": "^5.7.0"
   }
 }
