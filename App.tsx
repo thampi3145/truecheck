@@ -8,12 +8,14 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { StyleSheet } from 'react-native';
+import { AppRegistry } from 'react-native';
 import { COLORS } from './utils/theme';
 
 import ScanScreen from './screens/ScanScreen';
 import ResultScreen from './screens/ResultScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import ChatScreen from './screens/ChatScreen';
+import CompareScreen from './screens/CompareScreen';  // ← NEW
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -47,7 +49,7 @@ function HistoryStack() {
   );
 }
 
-export default function App() {
+function App() {
   return (
     <GestureHandlerRootView style={styles.root}>
       <SafeAreaProvider>
@@ -60,16 +62,22 @@ export default function App() {
               tabBarActiveTintColor: COLORS.accent,
               tabBarInactiveTintColor: COLORS.textMuted,
               tabBarLabelStyle: styles.tabLabel,
-              tabBarIcon: ({ focused, color, size }) => {
+              tabBarIcon: ({ focused, color }) => {
                 let iconName: any = 'scan';
-                if (route.name === 'ScanTab') iconName = focused ? 'scan' : 'scan-outline';
-                if (route.name === 'HistoryTab') iconName = focused ? 'time' : 'time-outline';
-                if (route.name === 'ChatTab') iconName = focused ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline';
+                if (route.name === 'ScanTab') 
+                  iconName = focused ? 'scan' : 'scan-outline';
+                if (route.name === 'CompareTab') 
+                  iconName = focused ? 'git-compare' : 'git-compare-outline';
+                if (route.name === 'HistoryTab') 
+                  iconName = focused ? 'time' : 'time-outline';
+                if (route.name === 'ChatTab') 
+                  iconName = focused ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline';
                 return <Ionicons name={iconName} size={22} color={color} />;
               },
             })}
           >
             <Tab.Screen name="ScanTab" component={ScanStack} options={{ title: 'Scan' }} />
+            <Tab.Screen name="CompareTab" component={CompareScreen} options={{ title: 'Compare' }} />
             <Tab.Screen name="HistoryTab" component={HistoryStack} options={{ title: 'History' }} />
             <Tab.Screen name="ChatTab" component={ChatScreen} options={{ title: 'AI Chat' }} />
           </Tab.Navigator>
@@ -90,3 +98,6 @@ const styles = StyleSheet.create({
   },
   tabLabel: { fontSize: 11, fontWeight: '500' },
 });
+
+AppRegistry.registerComponent('main', () => App);
+export default App;

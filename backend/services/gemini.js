@@ -1,7 +1,7 @@
 const axios = require('axios');
 const logger = require('../utils/logger');
 
-const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent';
+const GEMINI_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent';
 
 // ─── Call Gemini API ─────────────────────────────────────────────────────────
 async function callGemini(prompt, systemInstruction = '') {
@@ -14,7 +14,7 @@ async function callGemini(prompt, systemInstruction = '') {
     contents: [{ role: 'user', parts: [{ text: prompt }] }],
     generationConfig: {
       temperature: 0.3,
-      maxOutputTokens: 1500,
+      maxOutputTokens: 8192,
     },
   };
 
@@ -105,11 +105,18 @@ Return ONLY this JSON (no markdown):
 }`;
 
   logger.info('Calling Gemini for product analysis...');
-  const raw = await callGemini(prompt, system);
+const raw = await callGemini(prompt, system);
+console.log('Gemini raw response:', raw.substring(0, 200));
 
-  // Clean up any accidental markdown fences
-  const cleaned = raw.replace(/```json|```/g, '').trim();
-  return JSON.parse(cleaned);
+const cleaned = raw.replace(/```json|```/g, '').trim();
+
+// Find the JSON start and end
+const start = cleaned.indexOf('{');
+const end = cleaned.lastIndexOf('}');
+
+if (start === -1 || end === -1) throw new Error('No JSON found in response');
+
+return JSON.parse(cleaned.substring(start, end + 1));
 }
 
 // ─── Analyze Screenshot with AI ──────────────────────────────────────────────
@@ -156,7 +163,7 @@ Analyze this screenshot of a product listing and return ONLY this JSON (no markd
         },
       ],
     }],
-    generationConfig: { temperature: 0.2, maxOutputTokens: 1500 },
+    generationConfig: { temperature: 0.2, maxOutputTokens: 8192 },
   };
 
   logger.info('Calling Gemini Vision for screenshot analysis...');
