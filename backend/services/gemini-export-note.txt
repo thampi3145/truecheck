@@ -1,0 +1,9 @@
+// Add this export to your existing gemini.js
+// Find the callGemini function and make sure it's exported
+
+// At the bottom of your gemini.js, change:
+// module.exports = { analyzeProductWithAI, analyzeImageWithAI, chatAboutProduct };
+// To:
+// module.exports = { analyzeProductWithAI, analyzeImageWithAI, chatAboutProduct, callGemini };
+
+// This file just shows you what to add — don't replace your gemini.js with this

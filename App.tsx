@@ -15,7 +15,8 @@ import ScanScreen from './screens/ScanScreen';
 import ResultScreen from './screens/ResultScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import ChatScreen from './screens/ChatScreen';
-import CompareScreen from './screens/CompareScreen';  // ← NEW
+import SmartSearchScreen from './screens/SmartSearchScreen';
+import PlatformsScreen from './screens/PlatformsScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -36,6 +37,15 @@ function ScanStack() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Scan" component={ScanScreen} />
       <Stack.Screen name="Result" component={ResultScreen} />
+    </Stack.Navigator>
+  );
+}
+
+function SearchStack() {
+  return (
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="SmartSearch" component={SmartSearchScreen} />
+      <Stack.Screen name="Platforms" component={PlatformsScreen} />
     </Stack.Navigator>
   );
 }
@@ -63,23 +73,39 @@ function App() {
               tabBarInactiveTintColor: COLORS.textMuted,
               tabBarLabelStyle: styles.tabLabel,
               tabBarIcon: ({ focused, color }) => {
-                let iconName: any = 'scan';
-                if (route.name === 'ScanTab') 
+                let iconName: any = 'scan-outline';
+                if (route.name === 'ScanTab')
                   iconName = focused ? 'scan' : 'scan-outline';
-                if (route.name === 'CompareTab') 
-                  iconName = focused ? 'git-compare' : 'git-compare-outline';
-                if (route.name === 'HistoryTab') 
+                if (route.name === 'SearchTab')
+                  iconName = focused ? 'search' : 'search-outline';
+                if (route.name === 'HistoryTab')
                   iconName = focused ? 'time' : 'time-outline';
-                if (route.name === 'ChatTab') 
+                if (route.name === 'ChatTab')
                   iconName = focused ? 'chatbubble-ellipses' : 'chatbubble-ellipses-outline';
                 return <Ionicons name={iconName} size={22} color={color} />;
               },
             })}
           >
-            <Tab.Screen name="ScanTab" component={ScanStack} options={{ title: 'Scan' }} />
-            <Tab.Screen name="CompareTab" component={CompareScreen} options={{ title: 'Compare' }} />
-            <Tab.Screen name="HistoryTab" component={HistoryStack} options={{ title: 'History' }} />
-            <Tab.Screen name="ChatTab" component={ChatScreen} options={{ title: 'AI Chat' }} />
+            <Tab.Screen
+              name="ScanTab"
+              component={ScanStack}
+              options={{ title: 'Scan' }}
+            />
+            <Tab.Screen
+              name="SearchTab"
+              component={SearchStack}
+              options={{ title: 'Search' }}
+            />
+            <Tab.Screen
+              name="HistoryTab"
+              component={HistoryStack}
+              options={{ title: 'History' }}
+            />
+            <Tab.Screen
+              name="ChatTab"
+              component={ChatScreen}
+              options={{ title: 'AI Chat' }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>

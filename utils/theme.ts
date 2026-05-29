@@ -1,38 +1,28 @@
+export const API_BASE = 'http://192.168.1.9:3001';
+
 export const COLORS = {
   bg: '#0A0F1E',
-  bgCard: '#111827',
-  bgCardAlt: '#161D2E',
-  border: '#1E2A3A',
-  borderLight: '#243044',
+  bgCard: '#0F1628',
+  bgCardAlt: '#161D35',
   accent: '#00D4FF',
-  accentDim: '#00D4FF22',
-  accentGlow: '#00D4FF44',
+  accentDim: '#00D4FF11',
   success: '#00E676',
-  successDim: '#00E67622',
+  successDim: '#00E67611',
   warning: '#FFB300',
-  warningDim: '#FFB30022',
+  warningDim: '#FFB30011',
   danger: '#FF4B6E',
-  dangerDim: '#FF4B6E22',
-  textPrimary: '#F0F4FF',
-  textSecondary: '#7A8BA8',
-  textMuted: '#3D5068',
-  white: '#FFFFFF',
-  amazon: '#FF9900',
-  flipkart: '#2874F0',
-  myntra: '#FF3E6C',
-  ajio: '#00B5AD',
-};
-
-export const FONTS = {
-  display: 'System',
-  body: 'System',
+  dangerDim: '#FF4B6E11',
+  border: '#1E2A4A',
+  textPrimary: '#FFFFFF',
+  textSecondary: '#8892B0',
+  textMuted: '#4A5568',
 };
 
 export const RADIUS = {
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 24,
+  sm: 6,
+  md: 10,
+  lg: 14,
+  xl: 20,
   full: 999,
 };
 
@@ -44,12 +34,3 @@ export const SPACING = {
   xl: 32,
   xxl: 48,
 };
-
-export const PLATFORMS = [
-  { id: 'amazon', name: 'Amazon', color: '#FF9900', domains: ['amazon.in', 'amzn.in'] },
-  { id: 'flipkart', name: 'Flipkart', color: '#2874F0', domains: ['flipkart.com'] },
-  { id: 'myntra', name: 'Myntra', color: '#FF3E6C', domains: ['myntra.com'] },
-  { id: 'ajio', name: 'Ajio', color: '#00B5AD', domains: ['ajio.com'] },
-];
-
-export const API_BASE = 'http://192.168.1.9:3001'; // Replace with your deployed backend URL
