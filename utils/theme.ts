@@ -52,4 +52,4 @@ export const PLATFORMS = [
   { id: 'ajio', name: 'Ajio', color: '#00B5AD', domains: ['ajio.com'] },
 ];
 
-export const API_BASE = 'http://192.168.1.9'; // Replace with your deployed backend URL
+export const API_BASE = 'http://192.168.1.9:3001'; // Replace with your deployed backend URL
