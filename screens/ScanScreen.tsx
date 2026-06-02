@@ -13,6 +13,15 @@ import LoadingOverlay from '../components/LoadingOverlay';
 import { COLORS, RADIUS, SPACING, PLATFORMS } from '../utils/theme';
 import { detectPlatform } from '../utils/api';
 
+const FEATURES = [
+  { icon: 'shield-checkmark-outline', text: 'Seller credibility analysis' },
+  { icon: 'chatbubbles-outline', text: 'Fake review detection with NLP' },
+  { icon: 'pricetag-outline', text: 'Price anomaly intelligence' },
+  { icon: 'ribbon-outline', text: 'Warranty & return policy check' },
+  { icon: 'finger-print-outline', text: 'AI product authenticity scoring' },
+  { icon: 'images-outline', text: 'Image comparison for counterfeits' },
+];
+
 export default function ScanScreen({ navigation }: any) {
   const [url, setUrl] = useState('');
   const { loading, error, loadingStep, runAnalysis, runImageAnalysis, result } = useAnalysis();
@@ -174,14 +183,6 @@ export default function ScanScreen({ navigation }: any) {
   );
 }
 
-const FEATURES = [
-  { icon: 'shield-checkmark-outline', text: 'Seller credibility analysis' },
-  { icon: 'chatbubbles-outline', text: 'Fake review detection with NLP' },
-  { icon: 'pricetag-outline', text: 'Price anomaly intelligence' },
-  { icon: 'ribbon-outline', text: 'Warranty & return policy check' },
-  { icon: 'finger-print-outline', text: 'AI product authenticity scoring' },
-  { icon: 'images-outline', text: 'Image comparison for counterfeits' },
-];
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: COLORS.bg },

@@ -34,3 +34,10 @@ export const SPACING = {
   xl: 32,
   xxl: 48,
 };
+
+export const PLATFORMS = [
+  { name: 'Amazon India', color: '#FF9900' },
+  { name: 'Flipkart', color: '#2874F0' },
+  { name: 'Myntra', color: '#FF3E6C' },
+  { name: 'Ajio', color: '#00B5AD' },
+];
