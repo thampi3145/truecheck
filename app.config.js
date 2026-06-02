@@ -26,9 +26,9 @@ module.exports = {
     plugins: ["expo-image-picker"],
     extra: {
       eas: {
-      projectId: "f1d5d80a-1eaa-4048-956f-0003f193e8f3" 
+     "projectId": "49814a72-cbf7-447e-92c9-098c3fc8ee38"
       }
     },
-    owner: "thampi3145"
+    owner: "shyam3145"
   }
 };

@@ -187,4 +187,4 @@ ${productContext ? `\nCurrent product context:\nProduct: ${productContext.produc
   return reply.trim();
 }
 
-module.exports = { analyzeProductWithAI, analyzeImageWithAI, chatAboutProduct };
+module.exports = { analyzeProductWithAI, analyzeImageWithAI, chatAboutProduct, callGemini };

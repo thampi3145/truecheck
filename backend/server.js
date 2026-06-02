@@ -6,7 +6,8 @@ const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
 const logger = require('./utils/logger');
 const routes = require('./routes/index');
-const compareRoutes = require('./routes/compare'); // ← NEW
+const compareRoutes = require('./routes/compare');
+const searchRoutes = require('./routes/searchRoutes'); // ← NEW
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -32,7 +33,8 @@ app.use((req, res, next) => {
 
 // Routes
 app.use('/', routes);
-app.use('/', compareRoutes); // ← NEW: adds /compare endpoint
+app.use('/', compareRoutes);
+app.use('/', searchRoutes); // ← NEW: adds /compare endpoint
 
 app.get('/', (req, res) => {
   res.json({
